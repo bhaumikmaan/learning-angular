@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var point_1 = require("./point");
 function log(message) {
     console.log(message);
 }
@@ -29,6 +32,36 @@ var Color;
 })(Color || (Color = {}));
 ;
 var backgroundColor = Color.Red;
-var an;
+var an; // this is of type any which allows it to change types
 an = 1;
 an = 'string';
+var message;
+message = 'abc'; // type = any -> Intellisense functions not available for this type
+var endsWithC = message.endsWith('c');
+var alternativeWay = message, endsWith;
+('c');
+var doLog = function (message) { return console.log(message); };
+doLog("Arrow Function");
+var printPoint = function (point) {
+    console.log("X: " + point.x + "\nY: " + point.y);
+};
+printPoint({ x: 1, y: 2 });
+// class Point {
+//     x: number;
+//     y: number;
+//     draw(){
+//         console.log("X: " + this.x + "\nY: " + this.y)
+//     }
+//     // ? is used to make the parameter optional
+//     constructor(x?: number , y?:number){
+//         this.x = x;
+//         this.y = y ;
+//     }
+// }
+var point = new point_1.Point(100, 101);
+point.draw();
+point.x = 400;
+point.y = 401;
+point.draw();
+var undefPoint = new point_1.Point();
+undefPoint.draw();
