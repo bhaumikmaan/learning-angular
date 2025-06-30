@@ -12,6 +12,15 @@ import { CourseService } from './course.service';
         {{ course }}
       </li>
     <ul>
+    <img [src] = "imgUrl"/>
+
+    <table>
+      <tr>
+        <td [attr.colspan] = "colspan">Cell 1</td>
+        <td [attr.colspan] = "colspan">Cell 2</td>
+        <td [attr.colspan] = "colspan">Cell 3</td>
+      </tr>
+    </table>
   `
 })
 export class CourseComponent{
@@ -23,4 +32,6 @@ export class CourseComponent{
   }
   title = "List of Courses";
   courses ;
+  imgUrl = "http://lorempixel.com/400/200";
+  colspan = 2;
 }
