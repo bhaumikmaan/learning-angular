@@ -1,7 +1,26 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CourseService } from './course.service';
 
 @Component({
   selector: 'course',
-  template: '<h2>COURSES</h2>'
+  imports: [CommonModule],
+  template: `
+    <h2>{{ getTitle() }}</h2>
+    <ul>
+      <li *ngFor="let course of courses">
+        {{ course }}
+      </li>
+    <ul>
+  `
 })
-export class CourseComponent{}
+export class CourseComponent{
+  constructor(service: CourseService) {
+    this.courses = service.getCourses();
+  }
+  getTitle() {
+    return this.title;
+  }
+  title = "List of Courses";
+  courses ;
+}
