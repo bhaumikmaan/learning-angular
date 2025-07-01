@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CourseComponent } from './course.component';
 import { CliComponent } from './cli/cli.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 import { CourseService } from './course.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet , CourseComponent , CliComponent , FormsModule],
+  imports: [RouterOutlet , CourseComponent , CliComponent , FormsModule , FavoriteComponent],
   providers: [CourseService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
