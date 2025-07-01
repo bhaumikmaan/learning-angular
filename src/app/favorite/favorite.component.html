@@ -6,3 +6,13 @@
       (change)="onFavChanged()">
 
 </span>
+
+
+<div *ngIf="courses.length > 0; then courseList else noCourses">
+</div>
+<ng-template #courseList>
+  List of Courses
+</ng-template>
+<ng-template #noCourses>
+  No courses yet
+</ng-template>
