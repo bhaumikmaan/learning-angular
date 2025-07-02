@@ -1,18 +1,24 @@
-<p>contact-form works!</p>
-
 <form #f="ngForm" (ngSubmit)="submit(f)">
-  <div class="form-group">
-
-    <label for="firstName">First Name</label>
-    <input required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
-    <p>Debug - errors: {{ firstName.control.errors?.['required'] }}, update: {{ firstName.update.hasError }}</p>
-    <div class="alert alert-danger" *ngIf="firstName.control.value == null || firstName.control.errors?.['required']">First name is required</div>
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
+      <p>Debug - errors: {{ firstName.control.errors?.['required'] }}, update: {{ firstName.update.hasError }}</p>
+      <div class="alert alert-danger" *ngIf="firstName.control.value == null || firstName.control.errors?.['required']">First name is required</div>
+    </div>
+    <div *ngIf="!contact.valid">MODEL GROUP IS INVALID</div>
   </div>
-  <div class="form-group">
 
+  <div class="form-group">
     <label for="comment">Comment</label>
     <textarea id="comment" cols="30" rows="10" class="form-control"></textarea>
   </div>
-  <button class="btn btn-primary">Submit</button>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="isSubscribed"/>
+        Subscribe to my mailing list
+    </label>
+  </div>
+  <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 
 </form>
