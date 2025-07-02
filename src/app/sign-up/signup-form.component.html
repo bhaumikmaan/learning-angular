@@ -6,7 +6,13 @@
             id="username"
             type="text"
             class="form-control">
-        <div class="alert alert-danger" *ngIf="username?.touched && username?.invalid"> Username is required</div>
+        <div *ngIf="username?.pending">Checking for uniqueness</div>
+        <div class="alert alert-danger" *ngIf="username?.touched && username?.invalid">
+          <div *ngIf="username?.errors?.['required']">> Username is required</div>
+          <div *ngIf="username?.errors?.['minlength']">> Username should be minimum 3 characters</div>
+          <div *ngIf="username?.errors?.['cannotContainSpace']">> First name can not have spaces</div>
+          <div *ngIf="username?.errors?.['shouldBeUnique']">> Use a unique username</div>
+        </div>
     </div>
     <div class="form-group">
         <label for="password">Password</label>

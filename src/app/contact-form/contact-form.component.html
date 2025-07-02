@@ -3,7 +3,6 @@
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
-      <p>Debug - errors: {{ firstName.control.errors?.['required'] }}, update: {{ firstName.update.hasError }}</p>
       <div class="alert alert-danger" *ngIf="firstName.control.value == null || firstName.control.errors?.['required']">First name is required</div>
     </div>
     <div *ngIf="!contact.valid">MODEL GROUP IS INVALID</div>
