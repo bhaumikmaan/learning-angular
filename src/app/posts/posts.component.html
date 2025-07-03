@@ -1,0 +1,14 @@
+<p>Enter your own title!</p>
+
+<!--POST-->
+<input (keyup.enter)="createPost(title)" #title type="text" class="form-control">
+
+<!--GET-->
+<ul class="list-group">
+  <li *ngFor="let post of posts" class="list-group-item">
+<!--    PUT/PATCH -->
+    <button class="btn btn-default btn-sm" (click)="updatePost(post)"> Update </button>
+    <button class="btn btn-default btn-sm" (click)="deletePost(post)"> Delete </button>
+    > {{ post.title }}
+  </li>
+</ul>
