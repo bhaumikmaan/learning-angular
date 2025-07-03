@@ -9,11 +9,12 @@ import {ContactFormComponent} from './contact-form/contact-form.component';
 import {SignupFormComponent} from './sign-up/signup-form.component';
 import {PostsComponent} from './posts/posts.component';
 import {CourseService} from './course.service';
+import {PostService} from './services/post.service';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HttpClientModule, CourseComponent, ReactiveFormsModule, FormsModule, SignupFormComponent, FavoriteComponent, PostsComponent, ContactFormComponent],
-  providers: [CourseService],
+  providers: [CourseService , PostService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
